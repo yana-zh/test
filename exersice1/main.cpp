@@ -6,12 +6,12 @@ const int size = 10;
 int main()
 {
     cout << "Exersice 1:" << endl;
-    int massive[size]{};
+    int arr[size]{};
     for(int i = 0; i < size; ++i)
     {
-        massive[i] = i;
+        arr[i] = i;
     }
-    for(auto a : massive)
+    for(auto a : arr)
     {
         cout << a <<  ", ";
     }
@@ -19,10 +19,10 @@ int main()
     int s = 0;
     for(int i = 0; i < size; ++i)
     {
-        massive[i] *= massive[i];
-        s += massive[i];
+        arr[i] *= arr[i];
+        s += arr[i];
     }
-    for(auto a : massive)
+    for(auto a : arr)
     {
         cout << a <<  ", ";
     }
@@ -33,30 +33,29 @@ int main()
 
     cout << "Exersice 3:" << endl;
 
-    int massive2[size]{};
-    int* p = massive2;
-    for(int i = 0; i < size; ++i)
+    int arr2[size]{};
+    int* beg = arr2;
+    int* end = &arr2[size];
+    int i = 0;
+    for(int* p = beg; p < end; ++p)
     {
-        *p = i;
-        ++p;
+        *p = i++;
     }
-    for(auto a : massive2)
+    for(int* p = beg; p < end; ++p)
     {
-        cout << a <<  ", ";
+        cout << *p <<  ", ";
     }
     cout << char(8) << char(8) << "  " << endl;
 
-    p = massive2;
     s = 0;
-    for(int i = 0; i < size; ++i)
+    for(int* p = beg; p < end; ++p)
     {
         *p *= *p;
         s += *p;
-        ++p;
     }
-    for(auto a : massive2)
+    for(int* p = beg; p < end; ++p)
     {
-        cout << a <<  ", ";
+        cout << *p <<  ", ";
     }
     cout << char(8) << char(8) << "  " << endl;
     cout << "Sum = " << s << endl;
@@ -64,7 +63,7 @@ int main()
     //////////////////////////////
 
     cout << "Exersice 2:";
-    bool end = false;
+    bool fin = false;
     do{
         cout << char(7) << "\nWhat size are you looking for? <Int, Float, Long, lonG long, Char, Double, Size_t, or E to exit>\n";
         char type{};
@@ -100,11 +99,11 @@ int main()
             break;
         case 'e':
         case 'E':
-              end = true;
+              fin = true;
             break;
         default:
             cout << char(7) << "Invalid input!";
         }
-    } while(!end);
+    } while(!fin);
     return 0;
 }

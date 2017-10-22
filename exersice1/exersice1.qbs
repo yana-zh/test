@@ -1,7 +1,7 @@
 import qbs
 
 Project {
-    minimumQbsVersion: "1.7.1"
+    minimumQbsVersion: "1.4.3"
 
     CppApplication {
         consoleApplication: true
